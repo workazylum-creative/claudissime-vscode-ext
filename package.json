@@ -1,0 +1,88 @@
+{
+  "name": "claudissime",
+  "displayName": "Claudissime",
+  "description": "Powerful Claude AI integration for VS Code - your ultimate coding companion",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:claudissime.startChat"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "claudissime.startChat",
+        "title": "Open Claudissime Chat"
+      },
+      {
+        "command": "claudissime.generateUnitTests",
+        "title": "Generate Unit Tests"
+      },
+      {
+        "command": "claudissime.generateFunctionalTests",
+        "title": "Generate Functional Tests"
+      },
+      {
+        "command": "claudissime.upgradeProject",
+        "title": "Analyze & Upgrade Project"
+      }
+    ],
+    "viewsContainers": {
+      "panel": [
+        {
+          "id": "claudissimePanel",
+          "title": "Claudissime",
+          "icon": "resources/icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "claudissimePanel": [
+        {
+          "type": "webview",
+          "id": "claudissimeView",
+          "name": "Chat"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Claudissime",
+      "properties": {
+        "claudissime.apiKey": {
+          "type": "string",
+          "default": "",
+          "description": "Anthropic API key for Claude access"
+        },
+        "claudissime.defaultModel": {
+          "type": "string",
+          "default": "claude-3-opus-20240229",
+          "enum": [
+            "claude-3-opus-20240229",
+            "claude-3-sonnet-20240229",
+            "claude-3-haiku-20240307"
+          ],
+          "description": "Default Claude model to use"
+        },
+        "claudissime.maxTokens": {
+          "type": "number",
+          "default": 4000,
+          "description": "Maximum tokens for Claude responses"
+        }
+      }
+    }
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.10.2",
+    "highlight.js": "^11.11.1",
+    "marked": "^4.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.17.24",
+    "@types/vscode": "^1.80.0"
+  }
+}
