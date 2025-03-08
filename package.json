@@ -6,8 +6,20 @@
   "engines": {
     "vscode": "^1.80.0"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/workazylum-creative/claudissime-vscode-ext"
+  },
+  "icon": "resources/icon.png",
   "categories": [
     "Other"
+  ],
+  "activitybar": [
+    {
+      "id": "chatAI",
+      "title": "Chat AI",
+      "icon": "resources/icon.svg"
+    }
   ],
   "activationEvents": [
     "onCommand:claudissime.startChat"
